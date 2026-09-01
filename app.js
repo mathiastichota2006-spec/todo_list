@@ -11,7 +11,7 @@
    ================================================================ */
 
 const STORAGE_KEY = 'arch_ukoly_v1';
-const TASK_CATEGORIES = ['Škola', 'Finance', 'Osobní', 'Cvičení'];
+const TASK_CATEGORIES = ['Škola', 'Finance', 'Osobní', 'Cvičení', 'Práce', 'Zdraví', 'Nákupy', 'Domácnost'];
 const TASK_PRIORITIES = ['Nízká', 'Střední', 'Vysoká'];
 
 /**
