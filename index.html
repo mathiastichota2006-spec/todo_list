@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Úkolovník</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">Úkolovník</h1>
+            <p class="app-subtitle">Spravuj své úkoly chytře</p>
+        </header>
+
+        <!-- Filter and Stats Bar -->
+        <div class="controls-bar">
+            <div class="filter-group">
+                <button 
+                    class="filter-btn filter-btn--active" 
+                    data-filter="all"
+                    aria-pressed="true"
+                >
+                    Všechny
+                </button>
+                <button 
+                    class="filter-btn" 
+                    data-filter="active"
+                    aria-pressed="false"
+                >
+                    Aktivní
+                </button>
+                <button 
+                    class="filter-btn" 
+                    data-filter="completed"
+                    aria-pressed="false"
+                >
+                    Hotové
+                </button>
+            </div>
+
+            <div class="category-filter-group">
+                <button 
+                    class="category-filter-btn category-filter-btn--all"
+                    data-category="all"
+                    aria-pressed="true"
+                >
+                    Všechny kategorie
+                </button>
+                <button 
+                    class="category-filter-btn"
+                    data-category="Škola"
+                    aria-pressed="false"
+                >
+                    Škola
+                </button>
+                <button 
+                    class="category-filter-btn"
+                    data-category="Finance"
+                    aria-pressed="false"
+                >
+                    Finance
+                </button>
+                <button 
+                    class="category-filter-btn"
+                    data-category="Osobní"
+                    aria-pressed="false"
+                >
+                    Osobní
+                </button>
+                <button 
+                    class="category-filter-btn"
+                    data-category="Cvičení"
+                    aria-pressed="false"
+                >
+                    Cvičení
+                </button>
+            </div>
+        </div>
+
+        <!-- Task Counter -->
+        <div class="task-counter">
+            <span id="remaining-count" class="task-counter__text">0 zbývajících úkolů</span>
+        </div>
+
+        <!-- Task Input Form -->
+        <form class="task-form" id="task-form">
+            <div class="form-group">
+                <label for="task-input" class="sr-only">Nový úkol</label>
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    class="task-input" 
+                    placeholder="Přidej nový úkol..."
+                    autocomplete="off"
+                    maxlength="200"
+                    aria-label="Zadej text úkolu"
+                >
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-category" class="form-label">Kategorie</label>
+                    <select id="task-category" class="form-select">
+                        <option value="Osobní">Osobní</option>
+                        <option value="Škola">Škola</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Cvičení">Cvičení</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-priority" class="form-label">Priorita</label>
+                    <select id="task-priority" class="form-select">
+                        <option value="Nízká">Nízká</option>
+                        <option value="Střední">Střední</option>
+                        <option value="Vysoká">Vysoká</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn--primary" aria-label="Přidat úkol">
+                    Přidat
+                </button>
+            </div>
+        </form>
+
+        <!-- Task List -->
+        <div class="task-list-container">
+            <ul class="task-list" id="task-list" role="list">
+                <!-- Tasks rendered here -->
+            </ul>
+
+            <div class="empty-state" id="empty-state">
+                <p class="empty-state__text">Žádné úkoly k zobrazení</p>
+                <p class="empty-state__hint">Přidej nový úkol pomocí formuláře výše</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
