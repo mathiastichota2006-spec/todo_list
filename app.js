@@ -91,10 +91,10 @@ const AppState = {
 
     /**
      * Get filtered tasks based on current filters
-     * @returns {Array} Filtered tasks
+     * @returns {Array} Filtered and sorted tasks
      */
     getFilteredTasks() {
-        return this.tasks.filter(task => {
+        const filtered = this.tasks.filter(task => {
             // Status filter
             if (this.currentFilter === 'active' && task.completed) return false;
             if (this.currentFilter === 'completed' && !task.completed) return false;
@@ -105,6 +105,21 @@ const AppState = {
             }
 
             return true;
+        });
+
+        // Sort by priority (high → medium → low), then by creation date (newest first)
+        return filtered.sort((a, b) => {
+            const priorityOrder = { 'Vysoká': 0, 'Střední': 1, 'Nízká': 2 };
+            const aPriority = priorityOrder[a.priority] ?? 2;
+            const bPriority = priorityOrder[b.priority] ?? 2;
+
+            // First compare by priority
+            if (aPriority !== bPriority) {
+                return aPriority - bPriority;
+            }
+
+            // If same priority, sort by creation date (newest first)
+            return b.createdAt - a.createdAt;
         });
     },
 
