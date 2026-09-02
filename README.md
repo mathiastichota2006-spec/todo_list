@@ -44,19 +44,6 @@ V horní liště aplikace naleznete nástroje pro zálohování a přenositelnos
 
 ---
 
-## 🛠️ Spuštění projektu
-
-Projekt nevyžaduje žádné sestavování ani instalaci balíčků přes npm.
-
-1. Naklonujte repozitář:
-   ```bash
-   git clone <repo-url>
-   cd todo_list
-   ```
-2. Otevřete soubor `index.html` v libovolném moderním webovém prohlížeči (nebo jej spusťte přes lokální server, např. Live Server ve VS Code či `python3 -m http.server`).
-
----
-
 ## ⚖️ Licence (GNU AGPLv3)
 
 Tento projekt je šířen pod svobodnou licencí **GNU Affero General Public License v3.0 (AGPLv3)**.
