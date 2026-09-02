@@ -102,6 +102,17 @@ body {
 }
 
 /* ================================================================
+   EXPORT / IMPORT BAR
+   ================================================================ */
+
+.data-bar {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* ================================================================
    HEADER
    ================================================================ */
 
@@ -216,7 +227,7 @@ body {
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr auto;
     gap: var(--spacing-md);
     align-items: flex-end;
 }
@@ -313,6 +324,11 @@ body {
 .btn--primary:hover {
     background-color: #3b82f6;
     border-color: #3b82f6;
+}
+
+.btn--small {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
 }
 
 .btn--danger {
@@ -493,6 +509,141 @@ body {
 }
 
 /* ================================================================
+   DRAG AND DROP
+   ================================================================ */
+
+.task-drag-handle {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    cursor: grab;
+    user-select: none;
+    line-height: 1;
+}
+
+.task-item[draggable="true"]:active .task-drag-handle {
+    cursor: grabbing;
+}
+
+.task-item--dragging {
+    opacity: 0.5;
+}
+
+.task-item--drop-above {
+    box-shadow: 0 -3px 0 0 var(--color-focus);
+}
+
+.task-item--drop-below {
+    box-shadow: 0 3px 0 0 var(--color-focus);
+}
+
+/* ================================================================
+   DUE TIME
+   ================================================================ */
+
+.task-due {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+
+.task-due--overdue {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--color-priority-high);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ================================================================
+   TASK EDITING
+   ================================================================ */
+
+.task-item--editing {
+    align-items: stretch;
+}
+
+.task-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.task-edit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 640px) {
+    .task-edit-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.task-edit-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.task-move-btn,
+.task-edit-btn {
+    padding: var(--spacing-sm);
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+}
+
+.task-move-btn:hover,
+.task-edit-btn:hover {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.task-move-btn:focus,
+.task-edit-btn:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* ================================================================
+   PROGRESS CHART
+   ================================================================ */
+
+.chart-section {
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.chart-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 260px;
+}
+
+.chart-fallback {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+/* ================================================================
    EMPTY STATE
    ================================================================ */
 
@@ -525,6 +676,10 @@ body {
 /* ================================================================
    UTILITY CLASSES
    ================================================================ */
+
+.hidden {
+    display: none;
+}
 
 .sr-only {
     position: absolute;
