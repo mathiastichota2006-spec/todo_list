@@ -8,6 +8,19 @@
 </head>
 <body>
     <main class="app-container">
+        <!-- Export / Import -->
+        <div class="data-bar">
+            <button type="button" id="export-btn" class="btn btn--small">Exportovat úkoly</button>
+            <button type="button" id="import-btn" class="btn btn--small">Importovat úkoly</button>
+            <input
+                type="file"
+                id="import-input"
+                class="sr-only"
+                accept="application/json,.json"
+                aria-label="Vybrat soubor JSON s úkoly"
+            >
+        </div>
+
         <!-- Header -->
         <header class="app-header">
             <h1 class="app-title">Úkolovník</h1>
@@ -151,6 +164,16 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="task-due" class="form-label">Termín</label>
+                    <input
+                        type="datetime-local"
+                        id="task-due"
+                        class="task-input"
+                        aria-label="Termín splnění úkolu"
+                    >
+                </div>
+
                 <button type="submit" class="btn btn--primary" aria-label="Přidat úkol">
                     Přidat
                 </button>
@@ -168,8 +191,18 @@
                 <p class="empty-state__hint">Přidejte nový úkol pomocí formuláře výše</p>
             </div>
         </div>
+
+        <!-- Progress Chart -->
+        <section class="chart-section">
+            <h2 class="chart-title">Přehled splnění</h2>
+            <div class="chart-wrapper">
+                <canvas id="progress-chart" aria-label="Graf splněných úkolů" role="img"></canvas>
+            </div>
+            <p class="chart-fallback hidden" id="chart-fallback">Graf se nepodařilo načíst.</p>
+        </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
