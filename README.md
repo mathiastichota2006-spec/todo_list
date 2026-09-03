@@ -55,4 +55,4 @@ Tento projekt je šířen pod svobodnou licencí **GNU Affero General Public Lic
 ### Co to znamená pro programátory a vývojáře?
 - **Silný copyleft:** Pokud kód projektu upravíte, rozšíříte nebo jej začleníte do svého projektu, výsledné dílo musí být rovněž šířeno pod stejnou licencí AGPLv3.
 - **Síťová doložka (Network Use):** Klíčová vlastnost licence AGPL – pokud tuto aplikaci (nebo její modifikaci) provozujete na serveru a poskytujete ji uživatelům přes síť či internet (SaaS), **musíte uživatelům zpřístupnit kompletní zdrojový kód** dané běžící verze.
-- **Zachování informací:** Při distribuci je nutné zachovat původní autorská práva a text licence.\n
+- **Zachování informací:** Při distribuci je nutné zachovat původní autorská práva a text licence.
